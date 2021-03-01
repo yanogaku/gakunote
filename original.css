@@ -1,0 +1,335 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* トップへボタン */
+.scroll-top{
+  position: fixed;
+  bottom:10%;
+  right: 3%;
+  background-color: rgb(0, 162, 255) ;
+  color: rgb(255, 255, 255);
+  padding: 0 3px;
+  border-radius: 32px;
+  text-decoration: none;
+}
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-60 { font-size: 60px; }
+
+body{
+    overflow-x: hidden;
+}
+.span1{
+  color: orange;
+}
+.span2{
+  color: green;
+}
+.span3{
+  color: blueviolet;
+}
+.span4{
+  color: blue;
+}
+.span5{
+  color: red;
+}
+
+.header{
+    opacity: 0.7;
+    width: 100%;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: fixed;
+    z-index: 5;
+
+    
+}
+.top img{
+  border-radius:25px ;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: 17px;
+  left: 14px;
+  float: left;
+}
+.top h1{
+  float: left;
+  position: relative;
+  top: 10px;
+  left: 20px;
+  font-weight: 100;
+  letter-spacing: -2px;
+  font-family: 'Noto Serif JP', sans-serif;
+}
+.top h2{
+  float: left;
+  position: relative;
+  top: 23px;
+  left: 30px;
+  font-size: 20px;
+  letter-spacing: 2.5px;
+  font-family: 'Caveat', cursive;
+}
+
+
+
+
+
+  #menuButton {
+    overflow: hidden;
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 45px;
+    z-index: 0;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+  
+  #menuButton span,
+  #menuButton::before,
+  #menuButton::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right: 0;
+    width: 35px;
+    height: 2px;
+    margin: auto;
+    background: #000;
+  }
+  #menuButton span {
+    overflow: hidden;
+    z-index: 1;
+    color: #000;
+  }
+  #menuButton::before {
+    z-index: 2;
+    transform: translate(0, -12px);
+    content: "";
+  }
+  #menuButton::after {
+    z-index: 2;
+    transform: translate(0, 12px);
+    content: "";
+  }
+  #menuButton span {
+    opacity: 1;
+    transition: opacity 150ms 50ms;
+  }
+  #menuButton::before,
+  #menuButton::after {
+    transition: transform 200ms;
+  }
+  
+  #menuButton.active span {
+    opacity: 0;
+    transition: opacity 150ms;
+  }
+  #menuButton.active::before {
+    transform: rotate(45deg);
+  }
+  #menuButton.active::after {
+    transform: rotate(-45deg);
+  }
+  
+
+/*メニューの見た目*/
+#menuList ul{
+  margin-top: 70px;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: fixed;
+  visibility: hidden;
+  list-style: none;
+  background-color: rgba(157, 204, 224, 0.8);
+  font-family: 'Noto Serif JP', sans-serif;
+  z-index: 5;
+} 
+#menuList h2{
+text-align: center;
+font-size: 48px;
+margin-top: 25px;
+color: gray;
+}
+#menuList li{
+  text-align: center;
+  margin-top: 25px;
+  color:gray;
+  font-family: 'Noto Serif JP', sans-serif;
+}
+
+#menuList a{
+  text-decoration: none;
+  color: gray;
+  border-bottom: 1px solid gray;
+  font-family: serif;
+  font-size: 30px;
+}
+/* メニューを開く動作 */
+#menuList.active ul{
+    visibility: visible;
+    transition: cubic-bezier(0,1,0,1) 0.25s;
+    transition-delay: 150ms;
+}
+
+main{
+    background-color: rgb(201, 232, 247);
+    text-align: center;
+}
+main h1{
+  display: inline-block;
+  border-bottom:gray solid 1px;
+  position: relative;
+  top: 70px;
+  font-size: 40px;
+  color: gray;
+  letter-spacing: 3px;
+  font-family: 'Noto Serif JP', sans-serif;
+}
+.pics{
+  margin-top: 100px;
+}
+footer{
+  height: 100px;
+  width: 100%;
+  text-align: center;
+}
+footer p{
+  position: relative;
+  top: 40%;
+}
+.pic{
+  padding: 2%;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 1.2s;
+}
+.pic.is-over{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 1024px) {
+  body {
+    font-size: 1.5rem;
+  }
+  .top h2{
+    font-size: 35px;
+  }
+  #menuButton {
+    position: absolute;
+    top: 15px;
+    right: 50px;
+    width: 55px;
+    height: 55px;
+  }
+  #menuButton span,
+  #menuButton::before,
+  #menuButton::after{
+    width: 45px;
+    height: 2.5px;
+  }
+  #menuList h2{
+    font-size: 60px;
+    margin-top: 35%;
+    }
+    #menuList li{
+      margin-top: 40px;
+    }
+    
+    #menuList a{
+      border-bottom: 1.5px solid gray;
+      font-size: 40px;
+    }
+    #slide img{
+      width: 60%;
+    }
+  
+}
+@media  screen and (max-width: 640px) {
+  body {
+    font-size: 0.7rem;
+  }
+  .top img{
+    border-radius:15px ;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 20px;
+    left: 5px;
+    float: left;
+  }
+  .top h1{
+    top: 17px;
+    left: 7px;
+  }
+  .top h2{
+    font-size: 13px;
+    top: 30px;
+    left: 7px;
+  }
+  #menuButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+  }
+  #menuButton span,
+  #menuButton::before,
+  #menuButton::after{
+    width: 35px;
+    height: 2.5px;
+  }
+  #menuList ul{
+    margin-bottom: 7px;
+  }
+  #menuList h2{
+    font-size: 60px;
+    margin-top: 15%;
+    }
+    #menuList li{
+      margin-top: 5%;
+    }
+    
+    #menuList a{
+      border-bottom: 1.5px solid gray;
+      font-size: 30px;
+    }
+
+    #slide img{
+      width: 80%;
+    }
+    .slideshow{
+        height: 600px;
+    }
+    .photo-gallery img{
+      padding:2%;
+    }
+    .slideshow h1{
+      font-size: 20px;
+    }
+    .news h1{
+      font-size: 20px;
+    }
+    .news a{
+      font-size: 15px;
+    }
+    .photo-gallery h1{
+      font-size: 20px;
+    }
+    main h1{
+        font-size: 20px;
+    }
+}
